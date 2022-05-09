@@ -10,7 +10,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
+import os
 
+os.chdir("/home/muhammed/PycharmProjects/titanic-prediction")
+print("Completed!")
 def myEnsemble():
     X = pd.read_csv("modifiedTrain.csv", index_col = 0)
     y = pd.read_csv("train.csv").loc[:, "Survived"]
@@ -52,7 +55,7 @@ def myEnsemble():
     predictions = chooseTrueValue(predictionsLogistic, predictionsPol, predictionsSVR)
     predictions = pd.Series(predictions, name="Survived", index=indexes)
     print(predictions)
-    predictions.to_csv("C:/Users/AZAD KENOBI/Desktop/predictionsCombine.csv")
+    predictions.to_csv("/home/muhammed/PycharmProjects/titanic-prediction")
 
 @ignore_warnings(category=ConvergenceWarning)
 def calculateCombineModelMAE():
@@ -163,7 +166,7 @@ def randomForest():
     model.fit(X, y)
     predictions = model.predict(test)
     predictions = pd.Series(classification(predictions), name="Survived", index=indexes)
-    predictions.to_csv("C:/Users/AZAD KENOBI/Desktop/predictions.csv")
+    predictions.to_csv("predictions.csv")
 
 def allPropogation():
     X = pd.read_csv("modifiedTrain.csv", index_col=0)

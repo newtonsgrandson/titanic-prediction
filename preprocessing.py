@@ -2,9 +2,9 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 pTrainData = "train.csv"
-#pTrainData = "test.csv"
+pTrainData = "test.csv"
 toCsv = "modifiedTrain.csv"
-#toCsv = "modifiedTest.csv"
+toCsv = "modifiedTest.csv"
 
 def binarizeData(labelEncode, uniqueSize):
     oneHotEncoded = []
